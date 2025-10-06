@@ -17,7 +17,8 @@ jobs:
           name: PDF
           path: card.pdf
       - name : Publish PDF to GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
 
           files: card.pdf
+
