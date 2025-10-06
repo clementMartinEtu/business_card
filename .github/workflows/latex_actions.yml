@@ -1,5 +1,8 @@
 name: Build LaTeX document
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -7,10 +10,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           root_file: card.tex
-          compiler: xelatex
+          latexmk_use_xelatex: true
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
@@ -19,6 +22,6 @@ jobs:
       - name : Publish PDF to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-
           files: card.pdf
+
 
