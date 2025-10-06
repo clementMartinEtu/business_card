@@ -10,7 +10,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: card.tex
-          compiler = xelatex
+          compiler: xelatex
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
@@ -19,4 +19,5 @@ jobs:
       - name : Publish PDF to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+
           files: card.pdf
